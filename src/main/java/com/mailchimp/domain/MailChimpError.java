@@ -5,12 +5,17 @@
  */
 package com.mailchimp.domain;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- *
  * @author stevensnoeijen
  */
 @ToString(of = {"title", "status", "detail"})
@@ -50,4 +55,9 @@ public class MailChimpError {
     @JsonProperty
     @Getter
     private java.util.List<BodyError> errors;
+
+    @JsonProperty
+    @Getter
+    private Map<String, Object> exeception = new HashMap<String, Object>();
+
 }
